@@ -49,14 +49,16 @@ if (isset($_POST["registrar"])) {
         $apellidos = $_POST["apellidos"];
         $gmail = $_POST["gmail"];
         $usuario = $_POST["usuario"];
-        $password = $_POST["password"];
-        $sql = $conexion->query("INSERT INTO usuarios(nombres, apellidos, gmail, usuario, password) 
-                                 VALUES ('$nombres','$apellidos','$gmail','$usuario','$password')");
-            if ($sql==true) {
-                echo '<div class="alert alert-success" role="alert">Usuario registrado con éxito.</div>';
-            } else {
-                echo '<div class="alert alert-danger" role="alert">Error al registrar</div>';
-            }
+        $password = password_hash($_POST["password"], PASSWORD_BCRYPT); // nuevo
+        $sql = $conexion->prepare("INSERT INTO usuarios(nombres, apellidos, gmail, usuario, password) VALUES (?,?,?,?,?)");
+        $sql->bind_param("sssss",$nombres,$apellidos,$gmail,$usuario,$password);
+        
+        if ($sql->execute()) {
+            echo '<div class="alert alert-success" role="alert">Usuario registrado con éxito.</div>';
+        } else {
+            echo '<div class="alert alert-danger" role="alert">Error al registrar</div>';
+        }
+        $sql->close();
     }
 }
 ?>
