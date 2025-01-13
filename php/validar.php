@@ -1,22 +1,6 @@
 <?php
-/*
-$usuario = $_POST['usuario'];
-$password = $_POST['password'];
 session_start();
-
-require_once('conexion.php');
-
-$query = "SELECT * FROM usuarios where usuario = '$usuario' AND password ='$password'";
-$result = $conexion->query($query);
-if ($result==true) {
-    echo '<div class="alert alert-success" role="alert">Usuario se encuentra</div>';
-} else {
-    echo '<div class="alert alert-danger" role="alert">No se encontro usuario</div>';
-}
-*/
-
-session_start();
-require_once('conexion.php');
+require_once 'conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario = trim($_POST['usuario']);
@@ -72,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo '<div class="alert alert-danger" role="alert">Usuario o contraseña incorrectos.</div>';
     }
 }
-
+// cerrar la consulta
 $stmt->close();
-$conexion->close(); //nuevo
+$conexion->close(); //cerrar la conexion
 ?>

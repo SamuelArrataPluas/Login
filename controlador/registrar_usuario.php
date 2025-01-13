@@ -49,7 +49,7 @@ if (isset($_POST["registrar"])) {
         $apellidos = $_POST["apellidos"];
         $gmail = $_POST["gmail"];
         $usuario = $_POST["usuario"];
-        $password = password_hash($_POST["password"], PASSWORD_BCRYPT); // nuevo
+        $password = password_hash($_POST["password"], PASSWORD_BCRYPT); // clave encriptada
         $sql = $conexion->prepare("INSERT INTO usuarios(nombres, apellidos, gmail, usuario, password) VALUES (?,?,?,?,?)");
         $sql->bind_param("sssss",$nombres,$apellidos,$gmail,$usuario,$password);
         
@@ -58,6 +58,7 @@ if (isset($_POST["registrar"])) {
         } else {
             echo '<div class="alert alert-danger" role="alert">Error al registrar</div>';
         }
+        //cerrar la consulta
         $sql->close();
     }
 }
