@@ -1,62 +1,24 @@
 <?php
-session_start();
-require_once 'conexion.php';
+    session_start(); // Iniciar la sesión
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $usuario = trim($_POST['usuario']);
-    $password = trim($_POST['password']);
+    if ($_POST ['nombres'] != null and $_POST['apellidos'] != null and $_POST['gmail'] != null and $_POST['usuario'] != null and $_POST['password'] != null){ // validar datos que llegan del formulario
+        include_once ('../controlador/sesionModel.php'); // incluir el archivo que contiene la función de registro
+        $nombres = $_POST['nombres']; // recupara datos del formulario
+        $apellidos = $_POST['apellidos'];
+        $gmail = $_POST['gmail'];
+        $usuario = $_POST['usuario'];
+        $password = $_POST['password']; 
 
-    if (empty($usuario) || empty($password)) {
-        echo '<div class="alert alert-danger" role="alert">Por favor, completa todos los campos.</div>';
-        exit();
-    }
+        $registro = registro($nombres, $apellidos, $gmail, $usuario, $password); // llamar a a función de registro
 
-    // Usar sentencias preparadas para evitar inyección SQL
-    /*$stmt = $conexion->prepare("SELECT * FROM usuarios WHERE usuario = ? AND password = ?");
-    $stmt->bind_param("ss", $usuario, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-
-        // Guardar información del usuario en la sesión
-        $_SESSION['usuario'] = $user['usuario'];
-        $_SESSION['nombres'] = $user['nombres'];
-
-        // Redirigir a una página protegida
-        header("Location: dashboard.php");
-        exit();
-    } else {
-        echo '<div class="alert alert-danger" role="alert">Usuario o contraseña incorrectos.</div>';
-    }
-}*/
-
-    $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE usuario = ?");
-    $stmt->bind_param("s", $usuario);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        
-        // Verificar la contraseña
-        if (password_verify($password, $user['password'])) {
-
-            $_SESSION['usuario'] = $user['usuario'];
-            $_SESSION['nombres'] = $user['nombres'];
-
-            // Redirigo al dashboard
-            header("Location: dashboard.php");
-            exit();
-        } else {
-            echo '<div class="alert alert-danger" role="alert">Usuario o contraseña incorrectos.</div>';
+        if ($registro != null){ // validar si se inserto el registro
+            $_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Usuario registrado con éxito.</div>"; // mensaje de éxito
+        } else{
+            $_SESSION['mensaje'] = "<div class='alert alert-danger' role='alert'>Error al registrar el usuario.</div>"; // mensaje de error
         }
+
     } else {
-        echo '<div class="alert alert-danger" role="alert">Usuario o contraseña incorrectos.</div>';
+        $_SESSION['mensaje'] = "<div class='alert alert-danger' role='alert'>Por favor, completa todos los campos.</div>"; // mensaje de error
     }
-}
-// cerrar la consulta
-$stmt->close();
-$conexion->close(); //cerrar la conexion
+    header('Location: ../registro.php'); // redireccionar al index
 ?>

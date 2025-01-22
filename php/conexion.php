@@ -1,16 +1,18 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "login";
+function conectar(){
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $dbname="login";
 
-// Habilitar reportes de errores de mysqli
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $conn;
 
-try {
-    $conexion = new mysqli($host, $user, $password, $db);
-    $conexion->set_charset("utf8");
-} catch (Exception $e) {
-    echo "Error en la conexión a la base de datos: " . $e->getMessage();
+    } catch (PDOException $e) {
+        //echo "Error: " . $e->getMessage();
+        return null;
+    }
 }
 ?>

@@ -50,7 +50,7 @@ body{
 }
 .card{
     width: 360px;
-    padding: 4% 0 0;
+    padding: 1% 0 0;
     box-shadow: 0 0 20px;
     box-sizing: border-box;
     object-fit: cover;

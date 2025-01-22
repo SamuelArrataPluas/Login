@@ -14,20 +14,18 @@
         <div class="form">
             <img src="./img/noFilter.png" alt="user">
             <hr>
-            <!--form action="./php/validar.php" method="post">
-                <i class="bi bi-person-circle"></i>
-                <input type="text" placeholder="Usuario" name="usuario" id="usuario" required>
-                <i class="bi bi-unlock-fill"></i>
-                <input type="password" placeholder="Contraseña" name="password" id="password" required>
-                <i class="bi bi-box-arrow-right"></i>
-                <button type="submit">Inicio Sesion</button>
-                <a href="registro.html">¡Registrate!</a>
-            </form-->
-            <form action="./php/validar.php" method="post">
+            <form action="./php/validar2.php" method="post">
+                <?php
+                    session_start();
+                    if (isset($_SESSION['mensaje'])) {
+                        echo $_SESSION['mensaje'];
+                        unset($_SESSION['mensaje']);
+                    }
+                ?>
                     <i class="bi bi-person-circle"></i>
-                    <input type="text" placeholder="Usuario" name="usuario" id="usuario" required>
+                    <input type="text" placeholder="Usuario" name="usuario" id="usuario">
                     <i class="bi bi-unlock-fill"></i>
-                    <input type="password" placeholder="Contraseña" name="password" id="password" required>
+                    <input type="password" placeholder="Contraseña" name="password" id="password">
                     <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                     <a href="registro.php" class="btn btn-link">¡Regístrate!</a>
             </form>
