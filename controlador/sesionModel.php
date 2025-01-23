@@ -16,9 +16,25 @@
             $stmt->bindParam(':password', password_hash($password, PASSWORD_BCRYPT));
             $stmt->execute(); // Ejecutar la sentencia
 
-            
-
             return $conn->lastInsertId(); // Devuelve el ID del último registro insertado
+
+        } catch (PDOException $e) {
+            //echo "Error: " . $e->getMessage();
+            return null;
+        }
+    }
+
+    function datosRepetidos($gmail, $usuario){
+        try {
+            $conn = conectar(); // Conexión a la base de datos
+
+            $sql = "SELECT * FROM usuarios WHERE gmail = :gmail OR usuario = :usuario"; // Sentencia SQL
+            $stmt = $conn->prepare($sql); // Preparar la sentencia
+            $stmt->bindParam(':gmail', $gmail); // Asignamos un valor a cada parametro
+            $stmt->bindParam(':usuario', $usuario);
+            $stmt->execute(); // Ejecutar la sentencia
+
+            return $stmt->rowCount() > 0; // Devolver verdadero si el número de filas es mayor a 0 
 
         } catch (PDOException $e) {
             //echo "Error: " . $e->getMessage();
@@ -37,18 +53,18 @@
 
             $result = $stmt->fetch(PDO::FETCH_ASSOC); // Obtener el resultado de la consulta
 
-            if ($result != null) {
-                if (password_verify($password, $result['password'])) {
-                    return $result;
+            if ($result != null) { // Si el resultado es diferente de nulo
+                if (password_verify($password, $result['password'])) { // Verificar la contraseña
+                    return $result; // Devolver el resultado
                 } else {
-                    return null;
+                    return null; // Devolver nulo
                 }
             } else {
-                return null;
+                return null; // Devolver nulo
             }
-        } catch (PDOException $e) {
-            //echo "Error: " . $e->getMessage();
-            return null;
+        } catch (PDOException $e) { // Capturar excepciones
+            //echo "Error: " . $e->getMessage(); // Mostrar mensaje de error
+            return null; // Devolver nulo
         }
     }
 ?>
