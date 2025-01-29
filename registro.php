@@ -12,7 +12,7 @@
 <body>
     <br><br><br><br>
     <div class="container-fluid text-center">
-        <form action="./php/validar.php" method="POST">
+        <form action="./php/validar.php" method="POST" class="Formulario" id="formulario">
         <div class="row text-center">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
@@ -26,35 +26,70 @@
                                 unset($_SESSION['mensaje']);
                             }
                         ?>
-                        <div class="input-group mb-3 input-group-sm">
+                        <!-- grupo nombre completo -->
+                        <div class="input-group mb-3 input-group-sm" id="nombres">
                             <i class="input-group-text bi bi-person-plus-fill"></i>
-                            <input type="text" class="form-control" placeholder="Nombre completo" name="nombres">
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="form-control" placeholder="Nombre completo" name="nombres">
+                                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">Escriba su nombre completo porfavor</p>
                         </div>
-                        <div class="input-group mb-3 input-group-sm">
+
+                        <!-- grupo apellidos -->
+                        <div class="input-group mb-3 input-group-sm" id="apellidos">
                             <i class="input-group-text bi bi-person-plus-fill"></i>
-                            <input type="text" class="form-control" placeholder="Apellido completo" name="apellidos">
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="form-control" placeholder="Apellido completo" name="apellidos">
+                                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">Escriba su apellido completo completo porfavor</p>
                         </div>
-                        <div class="input-group mb-3 input-group-sm">
+                        <!-- grupo correo electronico -->
+                        <div class="input-group mb-3 input-group-sm" id="gmail">
                             <i class="input-group-text bi bi-envelope-fill"></i>
-                            <input type="email" class="form-control" placeholder="Correo electrónico" name="gmail">
+                            <div class="formulario__grupo-input">
+                                <input type="email" class="form-control" placeholder="Correo electrónico" name="gmail">
+                                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">Correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
                         </div>
-                        <div class="input-group mb-3 input-group-sm">
+                        <!-- grupo usuario -->
+                        <div class="input-group mb-3 input-group-sm" id="usuario">
                             <i class="input-group-text bi bi-person-circle"></i>
-                            <input type="text" class="form-control" placeholder="Usuario" name="usuario">
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="form-control" placeholder="Usuario" name="usuario">
+                                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">El usuario puede tener entre 4 a 16 digitos, puede contener numeros, letras y guion bajo.</p>
                         </div>
-                        <div class="input-group mb-3 input-group-sm">
+                        <!-- grupo contraseña -->
+                        <div class="input-group mb-3 input-group-sm" id="password">
                             <i class="input-group-text bi bi-person-lock"></i>
-                            <input type="password" class="form-control" placeholder="Contraseña" name="password">
+                            <div class="formulario__grupo-input">
+                                <input type="password" class="form-control" placeholder="Contraseña" name="password">
+                                <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">La contraseña tiene que tener entre 4 y 12 caracteres</p>
                         </div>
                         <button type="submit" class="btn btn-success btn-sm" name="registrar">Crear cuenta</button>
                         <br>
                         <a href="index.php">Regresar</a>
                     </div>
                 </div>
+                <div class="formulario__grupo" id="terminos">
+                    <label class="formulario__label">
+                        <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+                        Acepto los términos y condiciones
+                    </label>
+                </div>
             </div>
             <div class="col-sm-4"></div>
         </div>
         </form>
-    </div> 
+    </div>
+    
+    <script src="./js/validar.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
 </html>
