@@ -119,7 +119,8 @@ body{
     bottom: 13px; /* Alineación del icono */
     z-index: 100; /* Capa superior */
     font-size: 15px; /* Tamaño de la letra */
-    /*opacity: 0;*/
+    opacity: 0;
+    text-align: left;
 }
 
 .formulario__chekbox{
@@ -132,6 +133,10 @@ body{
     opacity: 1;
 }
 
+.formulario__grupo-correcto .formulario__input{
+    border: 1px solid #17d499;
+}
+
 .formulario__grupo-incorrecto .formulario__validacion-estado{
     color: #ff0000;
     opacity: 1;  /* Muestra el icono */
@@ -140,10 +145,26 @@ body{
 .formulario__grupo-incorrecto .formulario__input{
     border: 1px solid #ff0000;
 }
+
+.formulario__btn{
+    outline: 0;
+    background: rgb(103, 160, 207);
+    color: rgb(102, 101, 101);
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
-/* Center align the text within the three columns below the carousel */
+/* Center align the text within the three columns below the carousel
 .marketing .col-lg-4 {
     margin-bottom: 1.5rem;
     text-align: center;
@@ -154,4 +175,4 @@ body{
   .marketing .col-lg-4 p {
     margin-right: .75rem;
     margin-left: .75rem;
-  }
+  }*/

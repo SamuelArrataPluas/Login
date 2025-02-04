@@ -1,18 +1,16 @@
 <?php
     include_once ('conexion.php');
 
-    function registro($nombres, $apellidos, $gmail, $usuario, $password) {
+    function registro($nombre_apellido, $gmail, $password){
         try {
             $conn = conectar(); // Conexión a la base de datos
             
-            $sql = "INSERT INTO usuarios(nombres, apellidos, gmail, usuario, password)
-                    VALUES (:nombres, :apellidos, :gmail, :usuario, :password)"; // Sentencia SQL
+            $sql = "INSERT INTO usuarios (nombre_apellido, gmail, password) 
+            VALUES (:nombre_apellido, :gmail, :password)"; // Sentencia SQL
 
             $stmt = $conn->prepare($sql); // Preparar la sentencia
-            $stmt->bindParam(':nombres', $nombres); 
-            $stmt->bindParam(':apellidos', $apellidos); 
+            $stmt->bindParam(':nombre_apellido', $nombre_apellido); 
             $stmt->bindParam(':gmail', $gmail);
-            $stmt->bindParam(':usuario', $usuario); // Asignamos un valor a cada parametro
             $stmt->bindParam(':password', password_hash($password, PASSWORD_BCRYPT));
             $stmt->execute(); // Ejecutar la sentencia
 
@@ -24,14 +22,14 @@
         }
     }
 
-    function datosRepetidos($gmail, $usuario){
+    function datosRepetidos($nombre_apellido, $gmail){
         try {
             $conn = conectar(); // Conexión a la base de datos
 
-            $sql = "SELECT * FROM usuarios WHERE gmail = :gmail OR usuario = :usuario"; // Sentencia SQL
+            $sql = "SELECT * FROM usuarios WHERE nombre_apellido = :nombre_apellido OR gmail = :gmail"; // Sentencia SQL
             $stmt = $conn->prepare($sql); // Preparar la sentencia
+            $stmt->bindParam(':nombre_apellido', $nombre_apellido);
             $stmt->bindParam(':gmail', $gmail); // Asignamos un valor a cada parametro
-            $stmt->bindParam(':usuario', $usuario);
             $stmt->execute(); // Ejecutar la sentencia
 
             return $stmt->rowCount() > 0; // Devolver verdadero si el número de filas es mayor a 0 
@@ -42,13 +40,13 @@
         }
     }
 
-    function verificar($usuario, $password){
+    function verificar($nombre_apellido, $password){
         try {
             $conn = conectar(); // Conexión a la base de datos
 
-            $sql = "SELECT * FROM usuarios WHERE usuario = :usuario"; // Sentencia SQL
+            $sql = "SELECT * FROM usuarios WHERE nombre_apellido = :nombre_apellido"; // Sentencia SQL
             $stmt = $conn->prepare($sql); // Preparar la sentencia
-            $stmt->bindParam(':usuario', $usuario); // Asignamos un valor a cada parametro
+            $stmt->bindParam(':nombre_apellido', $nombre_apellido); // Asignamos un valor a cada parametro
             $stmt->execute(); // Ejecutar la sentencia
 
             $result = $stmt->fetch(PDO::FETCH_ASSOC); // Obtener el resultado de la consulta

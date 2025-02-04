@@ -23,7 +23,7 @@
                     }
                 ?>
                     <i class="bi bi-person-circle"></i>
-                    <input type="text" placeholder="Usuario" name="usuario" id="usuario">
+                    <input type="text" placeholder="Usuario" name="nombre_apellido" id="nombre_apellido">
                     <i class="bi bi-unlock-fill"></i>
                     <input type="password" placeholder="Contraseña" name="password" id="password">
                     <button type="submit" class="btn btn-primary">Iniciar sesión</button>

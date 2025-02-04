@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="./css/Style.css?v=1.8">
+    <link rel="stylesheet" href="./css/Style.css?v=1.9">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -17,6 +17,7 @@
         <div class="row text-center">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
+                <br>
                 <div class="card">
                     <div class="card-header"><h3>Registrate</h3></div>
                     <div class="card-body">
@@ -44,7 +45,7 @@
                                 <input type="email" class="formulario__input" placeholder="Correo electrónico" name="correo">
                                 <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
                             </div>
-                            <p class="formulario__input-error">Correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                            <p class="formulario__input-error">Correo solo puede contener letras, numeros, puntos, guiones y guion bajo</p>
                         </div>
                         <!-- grupo contraseña -->
                         <div class="formulario__grupo input-group mb-3 input-group-sm" id="password">
@@ -64,9 +65,13 @@
                             </div>
                             <p class="formulario__input-error">Ambas contraseñas deben ser iguales</p>
                         </div>
-                        <button type="submit" class="btn btn-success btn-sm" name="registrar">Crear cuenta</button>
+                        <div class="formulario_grupo formulario__grupo-btn-enviar">
+                            <button type="submit" class="formulario__btn btn btn-primary btn-sm" name="registrar">Crear cuenta</button>
+                        </div>
                         <br>
-                        <a href="index.php">Regresar</a>
+                        <div>
+                            <p>¿Ya tienes una cuenta? <a href="index.php">Iniciar sesión</a></p>
+                        </div>
                     </div>
                 </div>
                 <div class="formulario__grupo" id="terminos">
@@ -80,7 +85,7 @@
         </div>
         </form>
     </div>
-    
-    <script src="./js/validar.js"></script>
+
+    <script src="./js/formulario.js"></script>
 </body>
 </html>
