@@ -29,7 +29,7 @@
                             }
                         ?>
                         <!-- grupo nombre completo -->
-                        <div class="formulario__grupo input-group mb-3 input-group-sm" id="nombre_apellido">
+                        <div class="formulario__grupo input-group mb-3 input-group-sm" id="grupo_nombre_apellido">
                             <i class="input-group-text bi bi-person-plus-fill"></i>
                             <div class="formulario__grupo-input">
                                 <input type="text" class="formulario__input" placeholder="Nombre y apellido" name="nombre_apellido">

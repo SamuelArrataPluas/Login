@@ -133,9 +133,6 @@ body{
     opacity: 1;
 }
 
-.formulario__grupo-correcto .formulario__input{
-    border: 1px solid #17d499;
-}
 
 .formulario__grupo-incorrecto .formulario__validacion-estado{
     color: #ff0000;
