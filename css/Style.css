@@ -65,14 +65,6 @@ body{
 .card-body a{
     padding: 9px;
 }
-.card-body button{
-    outline: 0;
-    padding: 5px;
-    border: 0;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    border-radius: 5px;
-}
 
 .formulario__label{
     display: block;
@@ -81,20 +73,26 @@ body{
     cursor: pointer;
 }
 
-.formulario__grupo-input{
+.formulario__grupo-input {
     position: relative;
+    width: 90%; /* Asegura que el contenedor ocupe todo el ancho */
 }
 
+
 .formulario__input{
-    width: 160%;  /* Ancho del input */
+    width: 100%;  /* Ancho del input */
     background-color: #f1f1f1;
     border: 1px solid transparent; /* Borde del input */
     padding: 7px;  /* Espacio interno del input */
     border-radius: 5px; /* Bordes redondeados */
-    margin-bottom: 7px; /* Espacio entre los input */
+    margin-bottom: 5px; /* Espacio entre los input */
     box-sizing: border-box; /* Hace que el padding no afecte el ancho total del input */
     font-size: 15px; /* Tamaño de la letra */
     transition: .3s ease all; /* Efecto de transición */
+}
+
+.formulario__grupo {
+    margin-bottom: 15px; /* Espacio entre grupos de inputs */
 }
 
 .formulario__input:focus{
@@ -113,14 +111,14 @@ body{
     display: block;   
 }
 
-.formulario__validacion-estado{
-    position: absolute; /* Posición absoluta */
-    right: 5px; /* Alineación del icono */
-    bottom: 13px; /* Alineación del icono */
-    z-index: 100; /* Capa superior */
-    font-size: 15px; /* Tamaño de la letra */
+.formulario__validacion-estado {
+    position: absolute;
+    right: 35px; /* Ajusta la posición del ícono */
+    bottom: 11px; /* Ajusta la posición del ícono */
+    z-index: 100;
+    font-size: 16px; /* Tamaño del ícono */
     opacity: 0;
-    text-align: left;
+    transition: opacity 0.3s ease; /* Efecto de transición */
 }
 
 .formulario__chekbox{
@@ -143,19 +141,18 @@ body{
     border: 1px solid #ff0000;
 }
 
-.formulario__btn{
-    outline: 0;
+.formulario__btn {
+    width: 100%; /* Ancho completo del botón */
+    padding: 10px; /* Espaciado interno */
     background: rgb(103, 160, 207);
-    color: rgb(102, 101, 101);
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    width: 100%;
-    border: none;
-    padding: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: .3s ease all;
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+}
+
+.formulario__btn:hover {    
+    background: rgb(80, 124, 160);
 }
 
 /* MARKETING CONTENT

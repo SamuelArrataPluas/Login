@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/4587fd54e5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <br><br><br><br>
+    <br><br><br>
     <div class="container-fluid text-center">
         <form action="./php/validar.php" method="POST" class="Formulario" id="formulario">
         <div class="row text-center">
@@ -35,11 +35,11 @@
                                 <input type="text" class="formulario__input" placeholder="Nombre y apellido" name="nombre_apellido">
                                 <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
                             </div>
-                            <p class="formulario__input-error">Escriba su nombre y apellido completo porfavor</p>
+                            <p class="formulario__input-error">No se permite numeros</p>
                         </div>
 
                         <!-- grupo correo electronico -->
-                        <div class="formulario__grupo input-group mb-3 input-group-sm" id="correo">
+                        <div class="formulario__grupo input-group mb-3 input-group-sm" id="grupo_correo">
                             <i class="input-group-text bi bi-envelope-fill"></i>
                             <div class="formulario__grupo-input">
                                 <input type="email" class="formulario__input" placeholder="Correo electrónico" name="correo">
@@ -48,24 +48,24 @@
                             <p class="formulario__input-error">Correo solo puede contener letras, numeros, puntos, guiones y guion bajo</p>
                         </div>
                         <!-- grupo contraseña -->
-                        <div class="formulario__grupo input-group mb-3 input-group-sm" id="password">
+                        <div class="formulario__grupo input-group mb-3 input-group-sm" id="grupo_password">
                             <i class="input-group-text bi bi-person-lock"></i>
                             <div class="formulario__grupo-input">
-                                <input type="password" class="formulario__input" placeholder="Contraseña" name="password">
+                                <input type="password" class="formulario__input" placeholder="Contraseña" name="password" id="password">
                                 <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
                             </div>
                             <p class="formulario__input-error">La contraseña tiene que tener entre 4 y 12 caracteres</p>
                         </div>
                         <!-- grupo confirmar contraseña -->
-                        <div class="formulario__grupo input-group mb-3 input-group-sm" id="password2">
+                        <div class="formulario__grupo input-group mb-3 input-group-sm" id="grupo_password2">
                             <i class="input-group-text bi bi-person-lock"></i>
                             <div class="formulario__grupo-input">
-                                <input type="password" class="formulario__input" placeholder="Confirmar contraseña" name="password2">
+                                <input type="password" class="formulario__input" placeholder="Confirmar contraseña" name="password2" id="password2">
                                 <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
                             </div>
                             <p class="formulario__input-error">Ambas contraseñas deben ser iguales</p>
                         </div>
-                        <div class="formulario_grupo formulario__grupo-btn-enviar">
+                        <div class="formulario__grupo formulario__grupo-btn-enviar">
                             <button type="submit" class="formulario__btn btn btn-primary btn-sm" name="registrar">Crear cuenta</button>
                         </div>
                         <br>

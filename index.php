@@ -26,6 +26,7 @@
                     <input type="text" placeholder="Usuario" name="nombre_apellido" id="nombre_apellido">
                     <i class="bi bi-unlock-fill"></i>
                     <input type="password" placeholder="Contraseña" name="password" id="password">
+                    <a href="recuperar.php" class="btn btn-link" style="text-align: left;">Has olvidado tu contraseña?</a>
                     <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                     <a href="registro.php" class="btn btn-link">¡Regístrate!</a>
             </form>
