@@ -4,7 +4,6 @@
     function registro($nombre_apellido, $gmail, $password){
         try {
             $conn = conectar(); // Conexión a la base de datos
-            
             $sql = "INSERT INTO usuarios (nombre_apellido, gmail, password) 
             VALUES (:nombre_apellido, :gmail, :password)"; // Sentencia SQL
 

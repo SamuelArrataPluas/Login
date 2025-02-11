@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario'])) { // Si no existe la sesión de usuario
+if (!isset($_SESSION['nombre_usuario'])) {  // Si no existe la sesión de usuario
     header('Location: ../index.php'); // Redireccionar al index
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -17,6 +18,12 @@ if (!isset($_SESSION['usuario'])) { // Si no existe la sesión de usuario
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    <?php
+    if (isset($_SESSION['mensaje'])) {
+        echo $_SESSION['mensaje'];
+        unset($_SESSION['mensaje']); // Eliminar el mensaje después de mostrarlo
+        }
+            ?>
     <nav class= "navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container-fluid">
             <a class= "navbar-brand" href="#">
@@ -130,7 +137,7 @@ if (!isset($_SESSION['usuario'])) { // Si no existe la sesión de usuario
     </div>
 
     <div class="container-fluid mt-3">
-        <h3>Bienvenid@, <?php echo htmlspecialchars($_SESSION['nombres']); ?>!</h3>
+        <h3>Bienvenid@, <?php echo htmlspecialchars($_SESSION['nombre_apellido']); ?>!</h3>
     </div>
 </body>
 </html>

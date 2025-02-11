@@ -24,7 +24,7 @@
                                     <div class="col"><a href="index.php" class="btn btn-link">
                                         <h6 style="position:absolute">Ir al login</h6></a></div>
                                 </div>
-                                <hr>
+                                <br>
                             <div class="card-body">
                                 <div class="input-group">
                                     <i class="input-group-text bi bi-envelope-fill"></i>

@@ -19,7 +19,8 @@
             <div class="col-sm-6">
                 <br>
                 <div class="card">
-                    <div class="card-header"><h3>Registrate</h3></div>
+                    <div class="card-header"><h3>Registrate</h3>
+                    <hr>
                     <div class="card-body">
                         <?php
                             session_start();
@@ -68,10 +69,10 @@
                         <div class="formulario__grupo formulario__grupo-btn-enviar">
                             <button type="submit" class="formulario__btn btn btn-primary btn-sm" name="registrar">Crear cuenta</button>
                         </div>
-                        <br>
                         <div>
                             <p>¿Ya tienes una cuenta? <a href="index.php">Iniciar sesión</a></p>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <div class="formulario__grupo" id="terminos">
@@ -85,7 +86,6 @@
         </div>
         </form>
     </div>
-
     <script src="./js/formulario.js"></script>
 </body>
 </html>
