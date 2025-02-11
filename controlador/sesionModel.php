@@ -1,5 +1,5 @@
 <?php
-    include_once ('conexion.php');
+    include_once ('../php/conexion.php');
 
     function registro($nombre_apellido, $gmail, $password){
         try {
@@ -25,7 +25,7 @@
         try {
             $conn = conectar(); // Conexión a la base de datos
 
-            $sql = "SELECT * FROM usuarios WHERE nombre_apellido = :nombre_apellido OR gmail = :gmail"; // Sentencia SQL
+            $sql = "SELECT * FROM usuarios WHERE nombre_apellido = :nombre_apellido AND gmail = :gmail"; // Sentencia SQL
             $stmt = $conn->prepare($sql); // Preparar la sentencia
             $stmt->bindParam(':nombre_apellido', $nombre_apellido);
             $stmt->bindParam(':gmail', $gmail); // Asignamos un valor a cada parametro

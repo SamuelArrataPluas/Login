@@ -21,15 +21,15 @@
                                         <buton type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                                         </div>"; // mensaje de éxito
             } else{
-                $_SESSION['mensaje'] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>Error al registrar.
+                $_SESSION['mensaje'] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>Error al registrar
                                         <buton type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                                         </div>"; // mensaje de error   
             }
         }
     } else {
-        $_SESSION['mensaje'] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>Completa todos los campos.
+        $_SESSION['mensaje'] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>Completa todos los campos
                                 <buton type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                                 </div>"; // mensaje de error
     }
-    header('Location: ../registro.php'); // redireccionar al index
+    header('Location: ../view/registro.php'); // redireccionar al index
 ?>

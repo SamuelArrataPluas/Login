@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="./css/Style.css?v=1.9">
+    <link rel="stylesheet" href="../css/Style.css?v=1.9">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/4587fd54e5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <br><br><br>
+    <br><br><br><br>
     <div class="container-fluid text-center">
-        <form action="./php/validar.php" method="POST" class="Formulario" id="formulario">
+        <form action="../interfaces/registroUsuarioInterface.php" method="POST" class="Formulario" id="formulario">
         <div class="row text-center">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
@@ -70,7 +70,7 @@
                             <button type="submit" class="formulario__btn btn btn-primary btn-sm" name="registrar">Crear cuenta</button>
                         </div>
                         <div>
-                            <p>¿Ya tienes una cuenta? <a href="index.php">Iniciar sesión</a></p>
+                            <p>¿Ya tienes una cuenta? <a href="../index.php">Iniciar sesión</a></p>
                         </div>
                     </div>
                     </div>
@@ -86,6 +86,6 @@
         </div>
         </form>
     </div>
-    <script src="./js/formulario.js"></script>
+    <script src="../js/formulario.js"></script>
 </body>
 </html>
