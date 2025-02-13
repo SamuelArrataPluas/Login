@@ -1,10 +1,10 @@
 <?php
 session_start(); // Iniciar la sesión
 
-if ($_POST['nombre_apellido'] != null && $_POST['password'] != null) {  // Validar datos que llegan del formulario
+if (isset($_POST['nombre_apellido']) && isset($_POST['password'])) {  // Validar datos que llegan del formulario
     include_once('../controlador/sesionModel.php'); // Incluir el archivo que contiene la función de verificación
-    $nombre_apellido = $_POST['nombre_apellido']; // Recuperar datos del formulario
-    $password = $_POST['password'];
+    $nombre_apellido = htmlspecialchars($_POST['nombre_apellido']); // Recuperar y sanitizar datos del formulario
+    $password = htmlspecialchars($_POST['password']);
 
     $verificar = verificar($nombre_apellido, $password); // Llamar a la función de verificación
 

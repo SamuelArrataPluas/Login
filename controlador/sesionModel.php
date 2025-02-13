@@ -52,6 +52,7 @@
 
             if ($result != null) { // Si el resultado es diferente de nulo
                 if (password_verify($password, $result['password'])) { // Verificar la contraseña
+                    $_SESSION['nombre_apellido'] = $result['nombre_apellido'];
                     return $result; // Devolver el resultado
                 } else {
                     return null; // Devolver nulo

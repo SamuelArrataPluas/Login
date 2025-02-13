@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['nombre_usuario'])) {  // Si no existe la sesión de usuario
+if (!isset($_SESSION['nombre_apellido'])) {  // Si no existe la sesión de usuario
     header('Location: ../index.php'); // Redireccionar al index
     exit();
 }
@@ -18,12 +18,6 @@ if (!isset($_SESSION['nombre_usuario'])) {  // Si no existe la sesión de usuari
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <?php
-    if (isset($_SESSION['mensaje'])) {
-        echo $_SESSION['mensaje'];
-        unset($_SESSION['mensaje']); // Eliminar el mensaje después de mostrarlo
-        }
-            ?>
     <nav class= "navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container-fluid">
             <a class= "navbar-brand" href="#">
@@ -74,7 +68,7 @@ if (!isset($_SESSION['nombre_usuario'])) {  // Si no existe la sesión de usuari
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <a href="logout.php" class="btn btn-danger">Salir</a>
+                                    <a href="../php/logout.php" class="btn btn-danger">Salir</a>
                                 </div>
                             </div>
                         </div>
