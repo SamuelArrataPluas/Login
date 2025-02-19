@@ -9,7 +9,6 @@ if (isset($_POST['nombre_apellido']) && isset($_POST['password'])) {  // Validar
     $verificar = verificar($nombre_apellido, $password); // Llamar a la función de verificación
 
     if ($verificar != null) { // Validar si el usuario existe y la contraseña es correcta
-        $_SESSION['nombre_apellido'] = $verificar['nombre_apellido']; // Guardar el nombre en la sesión
         $_SESSION['mensaje'] = "<div class='alert alert-success alert-dismissible fade show' role='alert'>Inicio de sesion
                                 <buton type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                                 </div>";// Mensaje de éxito

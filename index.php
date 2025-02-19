@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (isset($_SESSION['nombre_apellido'])) {  
+    header('Location: ./view/dashboard.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +29,7 @@
                         <img src="./img/logoinapps.png" alt="logoimg" class="rounded-circle">
                         <form id="loginForm" action="./interfaces/inicioUsuarioInterface.php" method="POST" class="needs-validation" novalidate>
                         <?php
-                        session_start();
+
                         if (isset($_SESSION['mensaje'])) {
                             echo $_SESSION['mensaje'];
                             unset($_SESSION['mensaje']); // Eliminar el mensaje después de mostrarlo
