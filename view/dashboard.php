@@ -29,7 +29,7 @@ if (!isset($_SESSION['nombre_apellido'])) {  // Si no existe la sesión de usuar
             <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="AcercaDe.php">Acerca de</a>
+                        <a class="nav-link" href="tienda.php">tienda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="SobreNosotros.php">Sobre nosotros</a>
